@@ -77,7 +77,7 @@ void resuelveCaso() {
 int main() {
 
 #ifndef DOMJUDGE
-    std::ifstream in("Casos/11.txt");
+    std::ifstream in("../Casos/11.txt");
     auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
 
