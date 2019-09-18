@@ -3,4 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(TAIS 11.cpp)
+add_executable(TAIS 20.cpp)
