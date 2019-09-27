@@ -18,13 +18,18 @@ Solucion resolver(Datos datos) {
 
 // resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
-void resuelveCaso() {
+bool resuelveCaso() {
    
    // leer los datos de la entrada
    
+   if (caso especial)
+      return false;
+   
    Solucion sol = resolver(datos);
    
-   // escribir solución
+   // escribir sol
+   
+   return true;
 }
 
 int main() {
@@ -34,12 +39,8 @@ int main() {
    auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
    
-   int numCasos;
-   std::cin >> numCasos;
-   for (int i = 0; i < numCasos; ++i)
-      resuelveCaso();
-   
-   // para dejar todo como estaba al principio
+   while (resuelveCaso());
+
 #ifndef DOMJUDGE
    std::cin.rdbuf(cinbuf);
 #endif

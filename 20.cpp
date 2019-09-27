@@ -2,43 +2,45 @@
 
 // Pablo Miranda Torres
 //TAIS46
-// Comentario general sobre la solución,
-// explicando cómo se resuelve el problema
 
 #include <iostream>
 #include <fstream>
 
-#include "PriorityQueue.h"  // propios o los de las estructuras de datos de clase
+#include "PriorityQueue.h"
 
 // función que resuelve el problema
-// comentario sobre el coste, O(f(N)), donde N es ...
-int resolver(PriorityQueue<long int> datos) {
+// coste, O(N), donde N es la longitud de la cola
+long int resolver(PriorityQueue<long int> datos) {
     long int esfuerzo = 0;
     long int valor1, valor2;
-    while(!datos.size() > 1){
-        valor1 = datos.top();
-        datos.pop();
-        if(datos.size() > 1){
-        valor2 = datos.top();
-        datos.pop();}
-        esfuerzo = valor1+valor2;
+    while(datos.size() > 1){
+            valor1 = datos.top(); //sacamos los dos valores menores y sumamos
+            datos.pop();
+            valor2 = datos.top();
+            datos.pop();
+            if(!datos.empty())
+                 datos.push(valor1+valor2); //devolvemos la suma parcial a la cola
+             esfuerzo += valor1+valor2;
     }
     return esfuerzo;
 }
 
 // resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
-void resuelveCaso() {
-    int num;
+bool resuelveCaso() {
+    long int num;
     std::cin>>num;
+    if(num == 0)
+        return false;
     PriorityQueue<long int> cola;
-    for(int i= 0; i < num; i++){
+    for(long int i= 0; i < num; i++){
         long int x;
         std::cin>>x;
         cola.push(x);
     }
     std::cout << resolver(cola)<< std::endl;
     // escribir solución
+    return true;
 }
 
 int main() {
@@ -48,10 +50,7 @@ int main() {
     auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
 
-    int numCasos;
-    std::cin >> numCasos;
-    for (int i = 0; i < numCasos; ++i)
-        resuelveCaso();
+    while (resuelveCaso());
 
     // para dejar todo como estaba al principio
 #ifndef DOMJUDGE
