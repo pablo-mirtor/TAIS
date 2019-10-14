@@ -1,7 +1,6 @@
 
 // Pablo Miranda Torres
 
-// Creamos una clase donde se guarden los valores de cada usuario: id, periodo y tiempo pasado. Asignamos prioridad a la clase usuario.
 
 #include <iostream>
 #include <fstream>

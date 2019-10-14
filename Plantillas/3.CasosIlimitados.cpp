@@ -1,8 +1,9 @@
-
 // Pablo Miranda Torres
+
 
 #include <iostream>
 #include <fstream>
+
 #include "..."
 
 
@@ -12,20 +13,20 @@ Solucion resolver(Datos datos) {
 
 
 bool resuelveCaso() {
-
-   if (caso especial)
+   
+   if (!std::cin)
       return false;
    
    Solucion sol = resolver(datos);
-   
 
+   
    return true;
 }
 
 int main() {
 
 #ifndef DOMJUDGE
-   std::ifstream in("../Casos/XX.txt");
+    std::ifstream in("../Casos/XX.txt");
    auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
    
@@ -33,6 +34,7 @@ int main() {
 
 #ifndef DOMJUDGE
    std::cin.rdbuf(cinbuf);
+   system("PAUSE");
 #endif
    return 0;
 }
