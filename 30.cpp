@@ -3,16 +3,18 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 #include "Grafo.h"
 
+using namespace std;
 class grafoBipartito{
 private:
-    std::vector<bool> marked;
-    std::vector<int> valor; //grafo que asigna valores a los nodos (1 un color, 2 otro, 0 sin asignar)
+    vector<bool> marked;
+    vector<int> valor; //grafo que asigna valores a los nodos (1 un color, 2 otro, 0 sin asignar)
     bool bipartito;
 
-    bool dfs(Grafo const & g, int v){
+    void dfs(Grafo const & g, int v){
         for(int i : g.ady(v)){
             marked[v] = true;
             if(valor[i] == 0){
@@ -28,6 +30,7 @@ private:
     }
 
 public:
+    grafoBipartito(){};
     //Coste O(V+E) por algoritmo dfs
     grafoBipartito(Grafo const & g) : marked(g.V(), false) , valor(g.V(), 0), bipartito(true) {
         for(int i = 0; i < g.V(); ++i){
@@ -44,20 +47,20 @@ public:
 bool resuelveCaso() {
     int V, E;
     std::cin>> V >> E;
-    if (!std::cin)
+    if (!cin)
         return false;
 
     Grafo grafo = Grafo(V);
 
     for(int i = 0; i < E; i++){
         int v1, v2;
-        std::cin>>v1>>v2;
+        cin>>v1>>v2;
         grafo.ponArista(v1,v2);
     }
 
     grafoBipartito gb(grafo);
-    if(gb.esBipartito()) std::cout << "SI\n";
-    else std::cout << "NO\n";
+    if(gb.esBipartito()) cout << "SI\n";
+    else cout << "NO\n";
     return true;
 }
 
