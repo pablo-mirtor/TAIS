@@ -34,7 +34,6 @@ int main() {
 
 #ifndef DOMJUDGE
    std::cin.rdbuf(cinbuf);
-   system("PAUSE");
 #endif
    return 0;
 }
